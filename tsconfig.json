@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "types": [],
+    "jsx": "react",
+    "lib": ["es6", "dom", "es2017"]
+  },
+  "include": ["src/**/*", "test/**/*"]
+}

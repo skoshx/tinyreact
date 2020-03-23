@@ -1,0 +1,24 @@
+{
+  "name": "tinyreact",
+  "version": "1.0.0",
+  "description": "A tiny recreation of React with added features like async rendering.",
+  "author": "SkoshRG",
+  "license": "MIT",
+  "scripts": {
+    "run": "parcel test/index.html",
+    "build": "parcel build src/index.ts --out-dir build",
+    "check-types": "tsc"
+  },
+  "dependencies": {
+    "parcel": "^1.12.4",
+    "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0"
+  }
+}
