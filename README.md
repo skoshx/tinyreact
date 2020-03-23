@@ -11,7 +11,7 @@
 
 ###### Download
 
-- [Normal](https://raw.githubusercontent.com/SkoshRG/deno-open/master/index.ts)
+- [Normal](https://raw.githubusercontent.com/SkoshRG/tinyreact/master/build/index.js)
 
 ## Usage
 
@@ -81,7 +81,7 @@ If the container is null, `render()` will throw an Error.
 
 The initial state of the useState hook.
 
-### useStateTemplate<T>(initialState)
+### useStateTemplate`<T>`(initialState)
 
 #### initialState: `T`
 
