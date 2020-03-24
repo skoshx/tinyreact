@@ -36,13 +36,15 @@ export const React = {
 
 export class TinyReact {
   // The state can contain any datatype.
-  private static states: any[] = [];
-  private static stateCursor: number = 0;
+  private states: any[] = [];
+  private stateCursor: number = 0;
   
-  private static componentFunction: Function;
-  private static container: HTMLElement;
+  private componentFunction!: Function;
+  private container!: HTMLElement;
 
-  public static async render(reactElement: RenderElementType, container: HTMLElement | null) {
+  constructor() {}
+
+  public async render(reactElement: RenderElementType, container: HTMLElement | null) {
     if (!container) {
       throw Error(`Container passed to TinyReact.render() is null. Make sure you pass an HTMLElement that has exists in the DOM.`);
     }
@@ -108,23 +110,18 @@ export class TinyReact {
   }
 
   // TODO(SkoshRG): Test that useState & useStateTemplate can be used interchangeably
-  public static useStateTemplate<T>(initialState: T): TemplateStateReturnType<T> {
+  public useStateTemplate<T>(initialState: T): TemplateStateReturnType<T> {
     const FROZENCURSOR: number = this.stateCursor;
     this.states[FROZENCURSOR] = this.states[FROZENCURSOR] || initialState;
     const setState = (newState: T) => {
-      console.log('Setting state:')
-      console.log('Before setting state:')
-      console.log(this.states);
       this.states[FROZENCURSOR] = newState;
-      console.log('After:');
-      console.log(this.states);
       this.rerender();
     };
     this.stateCursor++;
     return [this.states[FROZENCURSOR], setState];
   }
 
-  public static useState(initialState: any): StateReturnType {
+  public useState(initialState: any): StateReturnType {
     const FROZENCURSOR: number = this.stateCursor;
     this.states[FROZENCURSOR] = this.states[FROZENCURSOR] || initialState;
     const setState = (newState: any) => {
@@ -135,12 +132,12 @@ export class TinyReact {
     return [this.states[FROZENCURSOR], setState];
   }
 
-  private static async rerender(): Promise<void> {
+  private async rerender(): Promise<void> {
     this.stateCursor = 0;
     this.render(this.componentFunction, this.container);
   }
 
-  private static isReactElement(reactElement: RenderElementType): reactElement is ElementType {
+  private isReactElement(reactElement: RenderElementType): reactElement is ElementType {
     return (!['string', 'number', 'function'].includes(typeof reactElement))
       && !(reactElement instanceof Promise)
       && (reactElement as ElementType).tag !== undefined;

@@ -5,7 +5,7 @@
   "author": "SkoshRG",
   "license": "MIT",
   "scripts": {
-    "run": "parcel test/index.html",
+    "dev": "parcel test/index.html",
     "build": "parcel build src/index.ts --out-dir build",
     "check-types": "tsc"
   },
