@@ -110,7 +110,7 @@ export class TinyReact {
   // TODO(SkoshRG): Test that useState & useStateTemplate can be used interchangeably
   public static useStateTemplate<T>(initialState: T): TemplateStateReturnType<T> {
     const FROZENCURSOR: number = this.stateCursor;
-    this.states[FROZENCURSOR] = this.states[FROZENCURSOR] || initialState;
+    this.states[FROZENCURSOR] = this.states[FROZENCURSOR] ?? initialState;
     const setState = (newState: T) => {
       console.log('Setting state:')
       console.log('Before setting state:')
@@ -126,7 +126,7 @@ export class TinyReact {
 
   public static useState(initialState: any): StateReturnType {
     const FROZENCURSOR: number = this.stateCursor;
-    this.states[FROZENCURSOR] = this.states[FROZENCURSOR] || initialState;
+    this.states[FROZENCURSOR] = this.states[FROZENCURSOR] ?? initialState;
     const setState = (newState: any) => {
       this.states[FROZENCURSOR] = newState;
       this.rerender();

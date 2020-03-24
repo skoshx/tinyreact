@@ -1,6 +1,6 @@
 {
   "name": "tinyreact",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny recreation of React with added features like async rendering.",
   "author": "SkoshRG",
   "license": "MIT",
